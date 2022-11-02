@@ -1,0 +1,16 @@
+
+.pyx
+def  编译不生成.h文件。
+cdef 在.pyd文件里面无法暴露函数。
+cpdef 可以暴露给python 和cython 使用。
+----
+addone str c++传入是一种pythonobject.需要转一下。
+
+----------------
+pyd 是python 的扩展，也是一种dll.但是这种dll 只暴露一个函数。里面很多函数只能通过python c++ 函数去引入和调用。
+导出暴露的函数
+cmd.exe:
+	d:\install\visualstudio2022\ideProfessional\VC\Tools\MSVC\14.31.31103\bin\Hostx86\x64\dumpbin.exe /exports ./myrun.cp310-win_amd64.pyd > 1.txt
+生成.pyd dll.
+	python setup_myrun.py build_ext --inplace
+----------------
